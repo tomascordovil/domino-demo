@@ -22,9 +22,9 @@ def create_visuals(model, param):
 
     # Add visualizations and save for inspection
     # RocCurveDisplay.from_estimator(rf, X_test, y_test, name='Random Forest AUC Curve')
-    roc_curve_display = sklearn.metrics.plot_roc_curve(model, X_test, y_test)
-    fig = roc_curve_display.figure_
-    plt.savefig('/mnt/artifacts/rf_ROC_Curve_n_estimators={}.png'), str(param)
+    #roc_curve_display = sklearn.metrics.plot_roc_curve(model, X_test, y_test)
+    #fig = roc_curve_display.figure_
+    #plt.savefig('/mnt/artifacts/rf_ROC_Curve_n_estimators={}.png'), str(param)
 
     y_pred = rf.predict(X_test)
     cm = confusion_matrix(y_test, y_pred)
@@ -107,9 +107,9 @@ print('Creating visualizations...')
 
 # Add visualizations and save for inspection
 # RocCurveDisplay.from_estimator(rf, X_test, y_test, name='Random Forest AUC Curve')
-roc_curve_display = sklearn.metrics.plot_roc_curve(rf, X_test, y_test)
-fig = roc_curve_display.figure_
-plt.savefig('/mnt/artifacts/rf_ROC_Curve.png')
+#roc_curve_display = sklearn.metrics.plot_roc_curve(rf, X_test, y_test)
+#fig = roc_curve_display.figure_
+#plt.savefig('/mnt/artifacts/rf_ROC_Curve.png')
 
 y_pred = rf.predict(X_test)
 cm = confusion_matrix(y_test, y_pred)

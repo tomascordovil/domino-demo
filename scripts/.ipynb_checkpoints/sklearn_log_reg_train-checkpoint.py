@@ -22,9 +22,9 @@ def create_visuals(model, param):
 
     # Add visualizations and save for inspection
     # RocCurveDisplay.from_estimator(log_reg, X_test, y_test, name='Logistic Regression AUC Curve')
-    roc_curve_display = sklearn.metrics.plot_roc_curve(model, X_test, y_test)
-    fig = roc_curve_display.figure_
-    plt.savefig('/mnt/artifacts/log_reg_ROC_Curve_C={}.png'), str(param)
+    #roc_curve_display = sklearn.metrics.plot_roc_curve(model, X_test, y_test)
+    #fig = roc_curve_display.figure_
+    #plt.savefig('/mnt/artifacts/log_reg_ROC_Curve_C={}.png'), str(param)
 
     y_pred = log_reg.predict(X_test)
     cm = confusion_matrix(y_test, y_pred)
@@ -41,7 +41,7 @@ def create_visuals(model, param):
     plt.savefig('/mnt/artifacts/log_reg_precision_recall_C={}.png'), str(param)
 
     
-    mlflow.log_artifact('/mnt/artifacts/log_reg_ROC_Curve_C={}.png'), str(param)
+    #mlflow.log_artifact('/mnt/artifacts/log_reg_ROC_Curve_C={}.png'), str(param)
     mlflow.log_artifact('/mnt/artifacts/log_reg_confusion_matrix_C={}.png'), str(param)
     mlflow.log_artifact('/mnt/artifacts/log_reg_precision_recall_C={}.png'), str(param)  
 
@@ -103,9 +103,9 @@ print('Creating visualizations...')
 
 # Add visualizations and save for inspection
 # RocCurveDisplay.from_estimator(log_reg, X_test, y_test, name='Logistic Regression AUC Curve')
-roc_curve_display = sklearn.metrics.plot_roc_curve(log_reg, X_test, y_test)
-fig = roc_curve_display.figure_
-plt.savefig('/mnt/artifacts/log_reg_ROC_Curve.png')
+#roc_curve_display = sklearn.metrics.plot_roc_curve(log_reg, X_test, y_test)
+#fig = roc_curve_display.figure_
+#plt.savefig('/mnt/artifacts/log_reg_ROC_Curve.png')
 
 y_pred = log_reg.predict(X_test)
 cm = confusion_matrix(y_test, y_pred)
@@ -207,7 +207,7 @@ with mlflow.start_run(run_name=run_name) as parent_run:
             create_visuals(log_reg, c)
             
     # Model Artifacts
-    mlflow.log_artifact('/mnt/artifacts/log_reg_ROC_Curve.png')
+    #mlflow.log_artifact('/mnt/artifacts/log_reg_ROC_Curve.png')
     mlflow.log_artifact('/mnt/artifacts/log_reg_confusion_matrix.png')
     mlflow.log_artifact('/mnt/artifacts/log_reg_precision_recall.png')
     mlflow.log_artifact('/mnt/code/models/sklearn_logreg.pkl')
