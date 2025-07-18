@@ -47,7 +47,7 @@ def create_visuals(model, param):
     mlflow.log_artifact('/mnt/artifacts/xgb_precision_recall_max_depth={}.png'), str(param)    
     
     # Read in data then split into train and test
-path = str('/mnt/data/mlops-best-practice/credit_card_default.csv')
+path = str('/mnt/data/mlops-best-practices/credit_card_default.csv')
 df = pd.read_csv(path)
 print('Read in {} rows of data'.format(df.shape[0]))
   
